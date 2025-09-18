@@ -265,19 +265,96 @@
             border-left: 4px solid var(--accent);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .slide {
-                padding: 4rem 1rem;
-            }
-            
-            .grid-2, .grid-3, .grid-4 {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-dots {
-                display: none;
-            }
+        /* Tables - Desktop */
+        .comparison-table-container {
+            overflow-x: auto;
+            margin-top: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 1rem;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        thead tr {
+            background: rgba(6, 182, 212, 0.1);
+        }
+
+        th {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Comparison Cards - Mobile */
+        .comparison-cards {
+            display: none;
+        }
+
+        .comparison-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .comparison-card.optelys {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+        }
+
+        .comparison-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .comparison-card.optelys h4 {
+            color: var(--primary);
+        }
+
+        .comparison-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .comparison-item:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-label {
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        .comparison-value {
+            font-weight: 600;
+        }
+
+        .comparison-value.positive {
+            color: var(--accent);
+        }
+
+        .comparison-value.negative {
+            color: var(--danger);
+        }
+
+        .comparison-value.primary {
+            color: var(--primary);
         }
 
         /* Contact Forms */
@@ -328,17 +405,73 @@
             50% { transform: scale(1.05); }
         }
 
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 4rem 1rem;
+            }
+            
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-dots {
+                display: none;
+            }
+
+            /* Hide desktop table, show mobile cards */
+            .comparison-table-container {
+                display: none;
+            }
+
+            .comparison-cards {
+                display: block;
+            }
+
+            /* Adjust typography for mobile */
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
         }
 
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        @media (max-width: 480px) {
+            .slide {
+                padding: 3rem 1rem;
+            }
+
+            .comparison-card {
+                padding: 1rem;
+            }
+
+            .comparison-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .comparison-label {
+                font-size: 0.9rem;
+            }
+
+            .comparison-value {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -526,551 +659,118 @@
             <h2>Positionnement concurrentiel</h2>
             <p style="text-align: center;">Analyse comparative des leaders du marché</p>
             
-            <div style="overflow-x: auto; margin-top: 3rem;">
-                <table style="width: 100%; border-collapse: collapse; margin: 2rem 0; background: rgba(30, 41, 59, 0.5); border-radius: 1rem;">
+            <!-- Desktop Table -->
+            <div class="comparison-table-container">
+                <table>
                     <thead>
-                        <tr style="background: rgba(6, 182, 212, 0.1);">
-                            <th style="padding: 1rem; text-align: left; color: var(--primary);">Critère</th>
-                            <th style="padding: 1rem; text-align: center; color: #cbd5e1;">Chance</th>
-                            <th style="padding: 1rem; text-align: center; color: #cbd5e1;">ABACUS</th>
-                            <th style="padding: 1rem; text-align: center; color: var(--primary); font-weight: bold;">Optelys</th>
+                        <tr>
+                            <th>Critère</th>
+                            <th style="text-align: center;">Chance</th>
+                            <th style="text-align: center;">ABACUS</th>
+                            <th style="text-align: center; color: var(--primary); font-weight: bold;">Optelys</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="padding: 1rem; font-weight: 600;">Prix moyen</td>
-                            <td style="padding: 1rem; text-align: center;">1880€</td>
-                            <td style="padding: 1rem; text-align: center;">2500€</td>
-                            <td style="padding: 1rem; text-align: center; color: var(--accent); font-weight: bold;">1090€</td>
+                            <td style="font-weight: 600;">Prix moyen</td>
+                            <td style="text-align: center;">1880€</td>
+                            <td style="text-align: center;">2500€</td>
+                            <td style="text-align: center; color: var(--accent); font-weight: bold;">1090€</td>
                         </tr>
                         <tr style="background: rgba(148, 163, 184, 0.05);">
-                            <td style="padding: 1rem; font-weight: 600;">Durée parcours</td>
-                            <td style="padding: 1rem; text-align: center;">12 semaines</td>
-                            <td style="padding: 1rem; text-align: center;">3-6 mois</td>
-                            <td style="padding: 1rem; text-align: center; color: var(--accent); font-weight: bold;">8 semaines</td>
+                            <td style="font-weight: 600;">Durée parcours</td>
+                            <td style="text-align: center;">12 semaines</td>
+                            <td style="text-align: center;">3-6 mois</td>
+                            <td style="text-align: center; color: var(--accent); font-weight: bold;">8 semaines</td>
                         </tr>
                         <tr>
-                            <td style="padding: 1rem; font-weight: 600;">Format</td>
-                            <td style="padding: 1rem; text-align: center;">100% digital</td>
-                            <td style="padding: 1rem; text-align: center;">Présentiel/Visio</td>
-                            <td style="padding: 1rem; text-align: center; color: var(--primary); font-weight: bold;">Hybride flexible</td>
+                            <td style="font-weight: 600;">Format</td>
+                            <td style="text-align: center;">100% digital</td>
+                            <td style="text-align: center;">Présentiel/Visio</td>
+                            <td style="text-align: center; color: var(--primary); font-weight: bold;">Hybride flexible</td>
                         </tr>
                         <tr style="background: rgba(148, 163, 184, 0.05);">
-                            <td style="padding: 1rem; font-weight: 600;">IA intégrée</td>
-                            <td style="padding: 1rem; text-align: center;">❌ Non</td>
-                            <td style="padding: 1rem; text-align: center;">❌ Non</td>
-                            <td style="padding: 1rem; text-align: center; color: var(--accent); font-weight: bold;">✅ ELIO</td>
+                            <td style="font-weight: 600;">IA intégrée</td>
+                            <td style="text-align: center;">❌ Non</td>
+                            <td style="text-align: center;">❌ Non</td>
+                            <td style="text-align: center; color: var(--accent); font-weight: bold;">✅ ELIO</td>
                         </tr>
                         <tr>
-                            <td style="padding: 1rem; font-weight: 600;">Gamification</td>
-                            <td style="padding: 1rem; text-align: center;">❌ Non</td>
-                            <td style="padding: 1rem; text-align: center;">❌ Non</td>
-                            <td style="padding: 1rem; text-align: center; color: var(--accent); font-weight: bold;">✅ 25 modules</td>
+                            <td style="font-weight: 600;">Gamification</td>
+                            <td style="text-align: center;">❌ Non</td>
+                            <td style="text-align: center;">❌ Non</td>
+                            <td style="text-align: center; color: var(--accent); font-weight: bold;">✅ 25 modules</td>
                         </tr>
                         <tr style="background: rgba(148, 163, 184, 0.05);">
-                            <td style="padding: 1rem; font-weight: 600;">API B2B</td>
-                            <td style="padding: 1rem; text-align: center;">Limité</td>
-                            <td style="padding: 1rem; text-align: center;">Non</td>
-                            <td style="padding: 1rem; text-align: center; color: var(--accent); font-weight: bold;">✅ Complète</td>
+                            <td style="font-weight: 600;">API B2B</td>
+                            <td style="text-align: center;">Limité</td>
+                            <td style="text-align: center;">Non</td>
+                            <td style="text-align: center; color: var(--accent); font-weight: bold;">✅ Complète</td>
                         </tr>
                         <tr>
-                            <td style="padding: 1rem; font-weight: 600;">Clients</td>
-                            <td style="padding: 1rem; text-align: center;">38 000</td>
-                            <td style="padding: 1rem; text-align: center;">Non communiqué</td>
-                            <td style="padding: 1rem; text-align: center; color: var(--primary); font-weight: bold;">Phase pilote</td>
+                            <td style="font-weight: 600;">Clients</td>
+                            <td style="text-align: center;">38 000</td>
+                            <td style="text-align: center;">Non communiqué</td>
+                            <td style="text-align: center; color: var(--primary); font-weight: bold;">Phase pilote</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            
-            <div class="grid-3" style="margin-top: 3rem;">
-                <div class="card">
-                    <h3 style="color: var(--primary);">Notre différenciation</h3>
-                    <p>"Haute couture" du bilan accessible</p>
-                    <p style="font-size: 0.9rem;">Excellence technique et accompagnement personnalisé à prix disruptif.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--secondary);">Notre stratégie</h3>
-                    <p>B2B2C et expansion internationale</p>
-                    <p style="font-size: 0.9rem;">Devenir le moteur technologique des professionnels RH en Europe et Afrique.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--accent);">Notre vision</h3>
-                    <p>Écosystème, pas concurrent</p>
-                    <p style="font-size: 0.9rem;">Nous équipons les institutions plutôt que de les concurrencer.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Slide 6: ELIO -->
-    <section class="slide" id="elio">
-        <div class="slide-content">
-            <h2>ELIO : Notre avantage technologique</h2>
-            <p style="text-align: center;">L'intelligence artificielle au service de votre développement professionnel</p>
-            
-            <div class="grid-2" style="margin-top: 3rem;">
-                <div>
-                    <h3>Architecture de pointe</h3>
-                    <div class="card" style="background: rgba(139, 92, 246, 0.1);">
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 1rem;">
-                                <strong style="color: var(--secondary);">Multi-agents spécialisés</strong><br/>
-                                JAM_ANALYST, MOVA_EXPERT, FORMATION_ADVISOR
-                            </li>
-                            <li style="margin-bottom: 1rem;">
-                                <strong style="color: var(--secondary);">Mémoire contextuelle</strong><br/>
-                                Personnalisation basée sur votre parcours
-                            </li>
-                            <li style="margin-bottom: 1rem;">
-                                <strong style="color: var(--secondary);">Recherche adaptative</strong><br/>
-                                Réponses contextualisées et précises
-                            </li>
-                            <li>
-                                <strong style="color: var(--secondary);">Fallback intelligent</strong><br/>
-                                Aucune question ne reste sans réponse
-                            </li>
-                        </ul>
+            <!-- Mobile Cards -->
+            <div class="comparison-cards">
+                <div class="comparison-card">
+                    <h4>Chance</h4>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Prix moyen</span>
+                        <span class="comparison-value">1880€</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Durée parcours</span>
+                        <span class="comparison-value">12 semaines</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Format</span>
+                        <span class="comparison-value">100% digital</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">IA intégrée</span>
+                        <span class="comparison-value negative">❌ Non</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Gamification</span>
+                        <span class="comparison-value negative">❌ Non</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">API B2B</span>
+                        <span class="comparison-value">Limité</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Clients</span>
+                        <span class="comparison-value">38 000</span>
                     </div>
                 </div>
-                
-                <div>
-                    <h3>Performances mesurées</h3>
-                    <div class="grid-2" style="gap: 1rem;">
-                        <div class="metric">
-                            <div class="metric-value">96%</div>
-                            <div class="metric-label">Satisfaction</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">85%</div>
-                            <div class="metric-label">Automatisation</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">95%</div>
-                            <div class="metric-label">Rapidité</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">24/7</div>
-                            <div class="metric-label">Disponibilité</div>
-                        </div>
-                    </div>
-                    
-                    <div class="card" style="margin-top: 2rem; text-align: center;">
-                        <p style="margin: 0;">
-                            <strong style="color: var(--primary); font-size: 1.5rem;">15-25s</strong><br/>
-                            Temps de réponse moyen
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Slide 7: Business Model -->
-    <section class="slide" id="business">
-        <div class="slide-content">
-            <h2>Modèle économique et vision d'expansion</h2>
-            <p style="text-align: center;">De la validation française à l'écosystème international</p>
-            
-            <div class="grid-2" style="margin-top: 3rem;">
-                <div>
-                    <h3>Phase 1 : Validation France (2026-2027)</h3>
-                    <div class="card">
-                        <h4 style="color: var(--primary);">B2C - Laboratoire d'innovation</h4>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Rodage de la plateforme avec les particuliers pour perfectionner l'expérience utilisateur</p>
-                        
-                        <h4 style="color: var(--secondary);">Projections financières</h4>
-                        <div style="margin-bottom: 1rem;">
-                            <strong>2026 :</strong> <span style="color: var(--primary);">284k€</span><br/>
-                            <strong>2027 :</strong> <span style="color: var(--accent);">610k€</span><br/>
-                            <strong>2028 :</strong> <span style="color: var(--warning);">925k€</span>
-                        </div>
-                        
-                        <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <strong>Marge brute : 87.8%</strong><br/>
-                            <strong>Break-even : Mois 6</strong>
-                        </div>
+                <div class="comparison-card">
+                    <h4>ABACUS</h4>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Prix moyen</span>
+                        <span class="comparison-value">2500€</span>
                     </div>
-                </div>
-                
-                <div>
-                    <h3>Phase 2 : Expansion B2B & Internationale</h3>
-                    <div class="card">
-                        <h4 style="color: var(--accent);">Objectif ultime : Fournisseur institutionnel</h4>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Devenir la technologie de référence pour entreprises, institutions et organismes de formation</p>
-                        
-                        <h4 style="color: var(--warning);">Marchés cibles d'expansion</h4>
-                        <div class="grid-2" style="gap: 1rem; margin: 1rem 0;">
-                            <div>
-                                <strong>Prioritaires :</strong>
-                                <ul style="font-size: 0.9rem; margin: 0.5rem 0;">
-                                    <li>🇧🇪 Belgique</li>
-                                    <li>🇱🇺 Luxembourg</li>
-                                    <li>🇨🇭 Suisse</li>
-                                    <li>🇨🇦 Canada</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <strong>Émergents :</strong>
-                                <ul style="font-size: 0.9rem; margin: 0.5rem 0;">
-                                    <li>🌍 Maghreb</li>
-                                    <li>🌍 Afrique de l'Ouest</li>
-                                    <li>🇪🇺 UE élargie</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <strong>Avantage concurrentiel :</strong> API complète, certifications locales, partenariats stratégiques
-                        </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Durée parcours</span>
+                        <span class="comparison-value">3-6 mois</span>
                     </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <div class="badge badge-warning" style="font-size: 1.1rem; padding: 0.75rem 2rem;">
-                    🎯 Vision 2030 : Leader technologique européen du bilan de compétences
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Slide 8: Équipe -->
-    <section class="slide" id="team">
-        <div class="slide-content">
-            <h2>L'Histoire du Fondateur</h2>
-            <p style="text-align: center; color: var(--accent); font-size: 1.2rem;">30 ans d'expérience au cœur de l'entreprise</p>
-            
-            <div style="max-width: 900px; margin: 3rem auto;">
-                <div class="card" style="text-align: center; padding: 3rem;">
-                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center;">
-                        <span style="font-size: 3rem;">👨‍💼</span>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Format</span>
+                        <span class="comparison-value">Présentiel/Visio</span>
                     </div>
-                    <h3>Khalid BOUDRAR</h3>
-                    <p style="color: var(--primary); margin-bottom: 2rem;">Fondateur & CEO</p>
-                    
-                    <div style="background: rgba(30, 41, 59, 0.3); padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: left;">
-                        <p style="margin-bottom: 1.5rem;">Avant de créer Optelys, j'ai navigué pendant de nombreuses années dans l'univers exigeant de l'entreprise : <strong>banque, assurance, immobilier VEFA et entrepreneuriat</strong>.</p>
-                        <p>J'ai occupé des <strong>fonctions managériales</strong>, géré des équipes, piloté des projets complexes. J'ai vu de l'intérieur les dynamiques de carrière, les succès, mais aussi les blocages, les reconversions subies ou désirées.</p>
+                    <div class="comparison-item">
+                        <span class="comparison-label">IA intégrée</span>
+                        <span class="comparison-value negative">❌ Non</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">Gamification</span>
+                        <span class="comparison-value negative">❌ Non</span>
                     </div>
                     
-                    <h4 style="color: var(--secondary); margin: 2rem 0 1rem;">Cette expérience terrain m'a révélé les vrais besoins :</h4>
-                    
-                    <div class="grid-2" style="gap: 1rem; margin: 2rem 0; text-align: left;">
-                        <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <p style="margin: 0;"><span style="color: var(--warning);">✓</span> La nécessité de faire le point à des moments clés</p>
-                        </div>
-                        <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <p style="margin: 0;"><span style="color: var(--warning);">✓</span> L'importance de l'alignement entre personnalité et projet professionnel</p>
-                        </div>
-                        <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <p style="margin: 0;"><span style="color: var(--warning);">✓</span> Le besoin d'outils structurants pour prendre de la hauteur</p>
-                        </div>
-                        <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <p style="margin: 0;"><span style="color: var(--warning);">✓</span> La valeur de l'accompagnement humain dans les transitions</p>
-                        </div>
-                    </div>
-                    
-                    <h4 style="color: var(--accent); margin: 2rem 0 1rem;">Une expertise certifiée au service de tous</h4>
-                    
-                    <div style="background: rgba(16, 185, 129, 0.1); padding: 2rem; border-radius: 1rem; text-align: left;">
-                        <p style="margin-bottom: 1rem;">C'est cette expérience concrète qui m'a poussé à acquérir les certifications nécessaires :</p>
-                        
-                        <div class="grid-2" style="gap: 1rem; margin: 1rem 0;">
-                            <div>
-                                <p style="margin: 0.5rem 0;"><span style="color: var(--accent);">✓</span> <strong>Certifié pour réaliser des bilans de compétences</strong></p>
-                                <p style="margin: 0.5rem 0;"><span style="color: var(--accent);">✓</span> <strong>Formateur pour adultes</strong> (diplôme universitaire)</p>
-                            </div>
-                            <div>
-                                <p style="margin: 0.5rem 0;"><span style="color: var(--accent);">✓</span> <strong>Coach professionnel certifié RNCP</strong> (Bac+5)</p>
-                                <p style="margin: 0.5rem 0;"><span style="color: var(--accent);">✓</span> <strong>Certifié aux outils psychométriques</strong> de référence</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="background: rgba(6, 182, 212, 0.1); padding: 1.5rem; border-radius: 1rem; margin: 2rem 0;">
-                        <p style="color: var(--primary); font-weight: 600; margin: 0;">
-                            Mon crédo : Allier l'expertise du terrain à la rigueur académique pour créer des solutions qui fonctionnent dans le monde réel.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Slide 9: Contact -->
-    <section class="slide" id="contact">
-        <div class="slide-content">
-            <h2>Rejoignez l'aventure Optelys</h2>
-            <p style="text-align: center; font-size: 1.25rem; margin-bottom: 3rem;">
-                Choisissez votre profil et découvrez comment Optelys peut vous accompagner
-            </p>
-            
-            <div class="grid-3">
-                <div class="card" style="text-align: center; border: 2px solid var(--primary);">
-                    <h3>🧪 Beta-testeurs</h3>
-                    <p>Testez en avant-première et influencez le produit</p>
-                    <div class="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Votre nom" />
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Votre email" />
-                        </div>
-                        <div class="form-group">
-                            <select>
-                                <option>Votre profil professionnel</option>
-                                <option>Cadre en questionnement</option>
-                                <option>Entrepreneur</option>
-                                <option>En reconversion</option>
-                                <option>Autre</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary" style="width: 100%;">
-                            Devenir bêta-testeur
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="card" style="text-align: center; border: 2px solid var(--secondary);">
-                    <h3>🤝 Partenaires B2B</h3>
-                    <p>Cabinets RH, Coaches, Centres de formation</p>
-                    <div class="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Nom de votre structure" />
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email professionnel" />
-                        </div>
-                        <div class="form-group">
-                            <select>
-                                <option>Type de structure</option>
-                                <option>Cabinet de coaching</option>
-                                <option>Consultant RH</option>
-                                <option>Centre de formation</option>
-                                <option>CFA</option>
-                                <option>Autre</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-outline" style="width: 100%;">
-                            Devenir partenaire
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="card" style="text-align: center; border: 2px solid var(--accent);">
-                    <h3>💰 Investisseurs</h3>
-                    <p>Intéressé par notre vision et nos projections ?</p>
-                    <div class="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Nom / Fonds" />
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email" />
-                        </div>
-                        <div class="form-group">
-                            <select>
-                                <option>Ticket d'investissement</option>
-                                <option>< 50k€</option>
-                                <option>50k€ - 200k€</option>
-                                <option>200k€ - 500k€</option>
-                                <option>500k€+</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary" style="width: 100%;">
-                            Recevoir le deck
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <h3>Contact direct</h3>
-                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
-                    <a href="mailto:contact@optelys.fr" class="btn btn-outline">
-                        📧 contact@optelys.fr
-                    </a>
-                    <a href="tel:+33644037321" class="btn btn-outline">
-                        📱 06 44 03 73 21
-                    </a>
-                    <a href="https://linkedin.com/in/khalid-boudrar" class="btn btn-outline" target="_blank">
-                        💼 LinkedIn
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Slide 10: Conclusion -->
-    <section class="slide" id="conclusion">
-        <div class="slide-content">
-            <div style="text-align: center;">
-                <h1>Le futur du bilan de compétences<br/>commence <span style="color: var(--primary);">maintenant</span></h1>
-                
-                <div style="max-width: 800px; margin: 3rem auto;">
-                    <p style="font-size: 1.25rem; line-height: 1.8;">
-                        Optelys n'est pas qu'une plateforme de plus.<br/>
-                        C'est une <strong style="color: var(--primary);">vision</strong> : celle d'un monde où chaque professionnel 
-                        peut accéder à un accompagnement de qualité pour révéler son potentiel.
-                    </p>
-                    
-                    <p style="font-size: 1.25rem; line-height: 1.8; margin-top: 2rem;">
-                        Avec <strong style="color: var(--secondary);">30 ans d'expertise</strong>, 
-                        une <strong style="color: var(--accent);">technologie de pointe</strong>, 
-                        et une <strong style="color: var(--warning);">approche disruptive</strong>,
-                        nous sommes prêts à transformer ce marché.
-                    </p>
-                </div>
-                
-                <div class="grid-4" style="margin: 3rem 0;">
-                    <div class="metric">
-                        <div class="metric-value">60%</div>
-                        <div class="metric-label">moins cher</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">3x</div>
-                        <div class="metric-label">plus rapide</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">96%</div>
-                        <div class="metric-label">satisfaction</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">24/7</div>
-                        <div class="metric-label">disponible</div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 3rem;">
-                    <h3 style="margin-bottom: 2rem;">Rejoignez l'aventure</h3>
-                    <a href="https://beta.optelys.fr" class="btn btn-primary pulse" style="font-size: 1.25rem; padding: 1.25rem 3rem; text-decoration: none;">
-                        Découvrir la plateforme →
-                    </a>
-                </div>
-                
-                <div style="margin-top: 3rem;">
-                    <p style="color: var(--gray);">
-                        © 2025 Optelys - Tous droits réservés<br/>
-                        <small>La haute couture du bilan de compétences</small>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Navigation dots
-        const slides = document.querySelectorAll('.slide');
-        const navDots = document.getElementById('nav-dots');
-        
-        // Create dots
-        slides.forEach((slide, index) => {
-            const dot = document.createElement('span');
-            dot.className = 'dot';
-            dot.onclick = () => scrollToSlide(index);
-            navDots.appendChild(dot);
-        });
-        
-        const dots = document.querySelectorAll('.dot');
-        
-        // Scroll to slide
-        function scrollToSlide(index) {
-            slides[index].scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Update active dot on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const index = Array.from(slides).indexOf(entry.target);
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    if (dots[index]) {
-                        dots[index].classList.add('active');
-                    }
-                }
-            });
-        }, observerOptions);
-        
-        slides.forEach(slide => observer.observe(slide));
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            const currentSlide = Array.from(slides).findIndex(slide => {
-                const rect = slide.getBoundingClientRect();
-                return rect.top >= -100 && rect.top <= 100;
-            });
-            
-            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-                e.preventDefault();
-                if (currentSlide < slides.length - 1) {
-                    scrollToSlide(currentSlide + 1);
-                }
-            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-                e.preventDefault();
-                if (currentSlide > 0) {
-                    scrollToSlide(currentSlide - 1);
-                }
-            }
-        });
-        
-        // Initialize
-        dots[0].classList.add('active');
-        
-        // Form handling
-        document.querySelectorAll('.contact-form button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const form = e.target.closest('.contact-form');
-                const inputs = form.querySelectorAll('input, select');
-                
-                // Simple validation
-                let isValid = true;
-                inputs.forEach(input => {
-                    if (!input.value) {
-                        input.style.borderColor = 'var(--danger)';
-                        isValid = false;
-                    } else {
-                        input.style.borderColor = 'rgba(148, 163, 184, 0.3)';
-                    }
-                });
-                
-                if (isValid) {
-                    // Simulate form submission
-                    button.textContent = 'Envoyé !';
-                    button.style.background = 'var(--accent)';
-                    setTimeout(() => {
-                        button.textContent = button.textContent.replace('Envoyé !', button.textContent);
-                        button.style.background = '';
-                    }, 2000);
-                } else {
-                    alert('Veuillez remplir tous les champs');
-                }
-            });
-        });
-        
-        // Analytics placeholder
-        const trackEvent = (category, action, label) => {
-            console.log('Track:', category, action, label);
-        };
-        
-        // Track interactions
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                trackEvent('Button', 'Click', btn.textContent.trim());
-            });
-        });
-        
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', () => {
-                trackEvent('Card', 'Click', card.querySelector('h3')?.textContent);
-            });
-        });
-    </script>
-</body>
-</html>
