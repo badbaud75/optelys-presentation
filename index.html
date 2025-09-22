@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optelys - Révolutionner le bilan de compétences par l'IA</title>
-    <meta name="description" content="Optelys combine 30 ans d'expertise et l'intelligence artificielle pour démocratiser l'accès au bilan de compétences de qualité.">
+    <title>Optelys - L'IA qui transforme les intentions en trajectoires de carrière</title>
+    <meta name="description" content="Optelys combine 30 ans d'expertise et l'intelligence artificielle pour révolutionner le développement professionnel.">
     <style>
         * {
             margin: 0;
@@ -184,6 +184,49 @@
             margin-top: 0.5rem;
         }
 
+        /* Journey Flow */
+        .journey-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .journey-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            min-width: 200px;
+        }
+
+        .journey-step::after {
+            content: '→';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .journey-step:last-child::after {
+            display: none;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+
         /* Badges */
         .badge {
             display: inline-block;
@@ -265,7 +308,7 @@
             border-left: 4px solid var(--accent);
         }
 
-        /* Responsive Tables - CORRECTION PRINCIPALE */
+        /* Responsive Tables */
         .table-wrapper {
             width: 100%;
             overflow: visible;
@@ -312,6 +355,56 @@
             font-weight: bold;
         }
 
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Contact Forms */
+        .contact-form {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            margin-top: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 0.5rem;
+            background: rgba(15, 23, 42, 0.8);
+            color: #f8fafc;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+        }
+
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             .slide {
@@ -323,6 +416,29 @@
             }
             
             .nav-dots {
+                display: none;
+            }
+
+            /* Journey flow mobile optimization */
+            .journey-flow {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .journey-step {
+                min-width: auto;
+            }
+
+            .journey-step::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -1.5rem;
+                transform: translateX(50%);
+                font-size: 1.5rem;
+            }
+
+            .journey-step:last-child::after {
                 display: none;
             }
 
@@ -387,6 +503,109 @@
                 color: var(--primary);
                 font-weight: bold;
             }
+
+            /* Contact forms mobile optimization */
+            .contact-form {
+                background: rgba(30, 41, 59, 0.8);
+                padding: 1.5rem;
+                border-radius: 1rem;
+                border: 1px solid rgba(148, 163, 184, 0.2);
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 0.75rem;
+                border: 1px solid rgba(148, 163, 184, 0.3);
+                border-radius: 0.5rem;
+                background: rgba(15, 23, 42, 0.8);
+                color: #f8fafc;
+                font-size: 1rem;
+                box-sizing: border-box;
+            }
+
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+            }
+
+            /* Typography adjustments for mobile */
+            h1 {
+                font-size: clamp(1.75rem, 8vw, 3rem);
+                line-height: 1.1;
+            }
+
+            h2 {
+                font-size: clamp(1.25rem, 6vw, 2rem);
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            /* Step icons mobile size */
+            .step-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            /* Metrics mobile layout */
+            .metric {
+                padding: 1rem;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            /* Cards mobile spacing */
+            .card {
+                padding: 1.5rem;
+            }
+
+            /* Contact section mobile */
+            #contact .grid-3 {
+                gap: 2rem;
+            }
+
+            /* Mobile-specific contact form styling */
+            #contact .card {
+                padding: 1.5rem;
+            }
+
+            #contact input,
+            #contact select {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            /* Button mobile optimization */
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            /* Navigation mobile */
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
         }
 
         /* Desktop-only mobile comparison hidden */
@@ -396,52 +615,43 @@
             }
         }
 
-        /* Contact Forms */
-        .contact-form {
-            background: rgba(30, 41, 59, 0.8);
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-        }
+        /* Ultra-small screens */
+        @media (max-width: 480px) {
+            .slide {
+                padding: 3rem 0.5rem;
+            }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+            .card {
+                padding: 1rem;
+            }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
+            .journey-flow {
+                gap: 1.5rem;
+            }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid rgba(148, 163, 184, 0.3);
-            border-radius: 0.5rem;
-            background: rgba(15, 23, 42, 0.8);
-            color: #f8fafc;
-            font-size: 1rem;
-        }
+            .step-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
-        }
+            /* Ultra-small typography */
+            h1 {
+                font-size: clamp(1.5rem, 7vw, 2.5rem);
+            }
 
-        .pulse {
-            animation: pulse 2s infinite;
-        }
+            h2 {
+                font-size: clamp(1.125rem, 5vw, 1.75rem);
+            }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            .metric-value {
+                font-size: 1.75rem;
+            }
+
+            /* Contact forms ultra-small */
+            .contact-form {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -461,12 +671,12 @@
                 <div class="badge badge-warning" style="margin-bottom: 2rem;">
                     🚀 Phase Pilote Q1 2025
                 </div>
-                <h1>Révolutionner le bilan de compétences<br/>par <span style="color: var(--primary);">l'intelligence artificielle</span></h1>
+                <h1>L'IA qui transforme les intentions<br/>en <span style="color: var(--primary);">trajectoires de carrière</span></h1>
                 <p style="font-size: 1.5rem; margin: 2rem auto; max-width: 800px;">
-                    30 ans d'expertise + IA de pointe = L'excellence accessible
+                    30 ans d'expertise + IA de pointe = Le développement professionnel réinventé
                 </p>
                 <p style="font-size: 1.25rem; color: var(--accent); margin: 2rem auto;">
-                    Nous démocratisons l'accès à un accompagnement professionnel de qualité
+                    Nous transformons l'introspection en action, l'intention en trajectoire
                 </p>
                 <div class="grid-3" style="margin-top: 3rem;">
                     <div class="metric">
@@ -489,49 +699,104 @@
     <!-- Slide 2: Problem -->
     <section class="slide" id="problem">
         <div class="slide-content">
-            <h2>Un marché cassé qui attend sa révolution</h2>
-            <p style="text-align: center;">Les problèmes criants du bilan de compétences traditionnel</p>
+            <h2>Le paradoxe de l'évolution professionnelle</h2>
+            <p style="text-align: center;">Besoin urgent, solutions obsolètes</p>
             
             <div class="grid-2" style="margin-top: 3rem;">
                 <div class="card problem-card">
-                    <h3 style="color: var(--danger);">💰 Prix prohibitifs</h3>
+                    <h3 style="color: var(--danger);">💰 Barrière financière</h3>
                     <p><strong>2000€ en moyenne</strong></p>
-                    <p>Les bilans traditionnels restent inaccessibles pour la majorité des actifs, malgré le CPF.</p>
+                    <p>Les solutions traditionnelles excluent 70% des actifs qui en auraient besoin.</p>
                 </div>
                 
                 <div class="card problem-card">
-                    <h3 style="color: var(--danger);">😞 Qualité décevante</h3>
-                    <p><strong>70% d'insatisfaction</strong></p>
-                    <p>Méthodes obsolètes, manque de personnalisation, accompagnement insuffisant.</p>
+                    <h3 style="color: var(--danger);">🎯 Approche statique</h3>
+                    <p><strong>État des lieux vs action</strong></p>
+                    <p>Les bilans classiques photographient sans déclencher le mouvement.</p>
                 </div>
                 
                 <div class="card problem-card">
-                    <h3 style="color: var(--danger);">Ɐ ️ Délais excessifs</h3>
+                    <h3 style="color: var(--danger);">⏱️ Délais décourageants</h3>
                     <p><strong>3 à 6 mois d'attente</strong></p>
-                    <p>Un parcours trop long qui décourage et fait perdre la motivation initiale.</p>
+                    <p>Un parcours trop long qui fait perdre l'élan de changement initial.</p>
                 </div>
                 
                 <div class="card problem-card">
-                    <h3 style="color: var(--danger);">🚫 Accès limité</h3>
-                    <p><strong>CSP+ urbains uniquement</strong></p>
-                    <p>Les zones rurales et les profils non-cadres sont exclus du système.</p>
+                    <h3 style="color: var(--danger);">🔄 Processus isolé</h3>
+                    <p><strong>Événement ponctuel</strong></p>
+                    <p>Pas d'accompagnement continu dans l'évolution de carrière.</p>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 3rem;">
                 <p style="font-size: 1.25rem; color: var(--warning);">
-                    💡 Opportunité : Un gap énorme entre demande croissante et offre de qualité
+                    💡 Opportunité : 85% des professionnels souhaitent un accompagnement évolutif et accessible
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Slide 3: Solution -->
+    <!-- Slide 3: Journey Transformation -->
+    <section class="slide" id="journey">
+        <div class="slide-content">
+            <h2>De l'introspection à l'action : notre approche révolutionnaire</h2>
+            <p style="text-align: center; margin-bottom: 3rem;">
+                Nous transformons le processus statique en parcours dynamique
+            </p>
+            
+            <div class="journey-flow">
+                <div class="journey-step">
+                    <div class="step-icon">🎯</div>
+                    <h4>Diagnostic intelligent</h4>
+                    <p>Analyse complète par IA contextuelle</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-icon">⚡</div>
+                    <h4>Plan d'action</h4>
+                    <p>Stratégie personnalisée immédiate</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-icon">🚀</div>
+                    <h4>Mise en mouvement</h4>
+                    <p>Accompagnement continu vers l'objectif</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-icon">📈</div>
+                    <h4>Évolution mesurée</h4>
+                    <p>Suivi des progrès et ajustements</p>
+                </div>
+            </div>
+            
+            <div class="grid-2" style="margin-top: 3rem;">
+                <div class="card" style="border-left: 4px solid var(--danger);">
+                    <h3 style="color: var(--danger);">❌ Approche traditionnelle</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>📸 Photo de l'existant</li>
+                        <li>📄 Rapport statique</li>
+                        <li>🔚 Fin du processus</li>
+                        <li>😐 Client livré à lui-même</li>
+                    </ul>
+                </div>
+                
+                <div class="card" style="border-left: 4px solid var(--accent);">
+                    <h3 style="color: var(--accent);">✅ Méthode Optelys</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>🎯 Diagnostic + Vision</li>
+                        <li>⚡ Plan d'action immédiat</li>
+                        <li>🚀 Accompagnement continu</li>
+                        <li>📈 Évolution mesurable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Solution -->
     <section class="slide" id="solution">
         <div class="slide-content">
-            <h2>La solution Optelys</h2>
+            <h2>La technologie Optelys</h2>
             <p style="text-align: center; margin-bottom: 3rem;">
-                L'alliance de l'expertise humaine et de l'intelligence artificielle
+                L'alliance de l'expertise humaine et de l'intelligence artificielle pour la mise en mouvement
             </p>
             
             <div class="grid-3">
@@ -540,57 +805,60 @@
                     <p>30 ans d'expérience terrain</p>
                     <ul style="color: var(--gray); font-size: 0.95rem; list-style: none; padding: 0;">
                         <li>✓ Ingénierie pédagogique propriétaire</li>
-                        <li>✓ 25 modules gamifiés</li>
+                        <li>✓ 25 modules d'action gamifiés</li>
                         <li>✓ Certifié RNCP</li>
                     </ul>
+                    <div class="badge badge-success" style="margin-top: 1rem;">Méthodologie éprouvée</div>
                 </div>
                 
                 <div class="card solution-card">
-                    <h3>🤖 ELIO - IA Contextuelle</h3>
-                    <p>Assistant RAG spécialisé</p>
+                    <h3>🤖 ELIO - IA de mise en mouvement</h3>
+                    <p>Assistant spécialisé en développement de carrière</p>
                     <ul style="color: var(--gray); font-size: 0.95rem; list-style: none; padding: 0;">
                         <li>✓ Architecture multi-agents</li>
-                        <li>✓ 96% de satisfaction</li>
+                        <li>✓ Plans d'action personnalisés</li>
                         <li>✓ Disponible 24/7</li>
                     </ul>
+                    <div class="badge badge-primary" style="margin-top: 1rem;">Transformation en action</div>
                 </div>
                 
                 <div class="card solution-card">
-                    <h3>⚡ Plateforme Automatisée</h3>
-                    <p>SaaS propriétaire</p>
+                    <h3>⚡ Écosystème intégré</h3>
+                    <p>Plateforme de développement continu</p>
                     <ul style="color: var(--gray); font-size: 0.95rem; list-style: none; padding: 0;">
                         <li>✓ CRM Qualiopi intégré</li>
-                        <li>✓ Infrastructure DevOps</li>
+                        <li>✓ API B2B complète</li>
                         <li>✓ Workflows intelligents</li>
                     </ul>
+                    <div class="badge badge-warning" style="margin-top: 1rem;">Écosystème complet</div>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 2rem;">
                 <div class="badge badge-warning" style="font-size: 1.1rem; padding: 0.75rem 1.5rem;">
-                    💎 Investissement technologique : 150k€+ (développement écosystème complet)
+                    💎 Notre objectif : transformer l'état des lieux en plan d'action immédiat
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Slide 4: Offres -->
+    <!-- Slide 5: Offres -->
     <section class="slide" id="offres">
         <div class="slide-content">
-            <h2>Nos formules révolutionnaires</h2>
-            <p style="text-align: center;">Trois niveaux d'accompagnement pour tous les besoins</p>
+            <h2>Nos formules de développement de carrière</h2>
+            <p style="text-align: center;">Trois niveaux d'accompagnement pour transformer vos intentions en trajectoires</p>
             
             <div class="grid-3" style="margin-top: 3rem;">
                 <div class="card" style="border: 2px solid var(--primary);">
-                    <div class="badge badge-primary">Même qualité, -50% moins cher</div>
+                    <div class="badge badge-primary">Développement autonome</div>
                     <h3>Essentielle</h3>
                     <p style="font-size: 2rem; color: var(--primary); margin: 1rem 0;"><strong>790€</strong></p>
-                    <p>Bilan de compétences 100% digital - Processus conforme aux standards professionnels</p>
+                    <p>Parcours de développement 100% digital avec IA personnalisée</p>
                     <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-                        <li>✓ Bilan complet 25 modules</li>
-                        <li>✓ IA personnalisée intégrée</li>
-                        <li>✓ Portrait professionnel généré par IA</li>
-                        <li>✓ 2 mois d'accès illimité</li>
+                        <li>✓ Diagnostic complet 25 modules</li>
+                        <li>✓ Plan d'action personnalisé par IA</li>
+                        <li>✓ Portrait professionnel évolutif</li>
+                        <li>✓ 2 mois d'accompagnement</li>
                     </ul>
                 </div>
                 
@@ -598,12 +866,12 @@
                     <div class="badge badge-success">Plus populaire</div>
                     <h3>Premium</h3>
                     <p style="font-size: 2rem; color: var(--accent); margin: 1rem 0;"><strong>1390€</strong></p>
-                    <p>Bilan avec accompagnement coaching - Méthode certifiée</p>
+                    <p>Développement avec coaching personnalisé</p>
                     <ul style="list-style: none; padding: 0; margin: 1rem 0;">
                         <li>✓ Tout Essentielle +</li>
-                        <li>✓ 6h de coaching individuel</li>
+                        <li>✓ 6h de coaching de mise en mouvement</li>
                         <li>✓ Support prioritaire</li>
-                        <li>✓ Option coaching à la carte</li>
+                        <li>✓ Suivi évolution 6 mois</li>
                     </ul>
                 </div>
                 
@@ -611,23 +879,23 @@
                     <div class="badge badge-warning">Bientôt disponible</div>
                     <h3>Excellence</h3>
                     <p style="font-size: 2rem; color: var(--warning); margin: 1rem 0;"><strong>1790€</strong></p>
-                    <p>Bilan officiel - Certifié Qualiopi, finançable CPF</p>
+                    <p>Parcours certifié - Finançable CPF</p>
                     <ul style="list-style: none; padding: 0; margin: 1rem 0;">
                         <li>✓ Tout Premium +</li>
-                        <li>✓ 10h40 accompagnement humain expert</li>
+                        <li>✓ 10h40 accompagnement expert</li>
                         <li>✓ Financement CPF possible</li>
-                        <li>✓ Certificat officiel reconnu</li>
+                        <li>✓ Certificat développement carrière</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Slide 5: Positionnement concurrentiel - SECTION CORRIGÉE -->
+    <!-- Slide 6: Positionnement concurrentiel -->
     <section class="slide" id="comparison">
         <div class="slide-content">
-            <h2>Positionnement concurrentiel</h2>
-            <p style="text-align: center;">Analyse comparative des leaders du marché</p>
+            <h2>Positionnement : équipeur, pas concurrent</h2>
+            <p style="text-align: center;">Notre stratégie d'écosystème vs la concurrence frontale</p>
             
             <!-- Desktop Table -->
             <div class="table-wrapper">
@@ -642,6 +910,12 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>Approche</td>
+                            <td>Bilan statique</td>
+                            <td>Bilan traditionnel</td>
+                            <td class="highlight">Développement dynamique</td>
+                        </tr>
+                        <tr>
                             <td>Prix moyen</td>
                             <td>1880€</td>
                             <td>2500€</td>
@@ -654,34 +928,22 @@
                             <td class="highlight">8 semaines</td>
                         </tr>
                         <tr>
-                            <td>Format</td>
-                            <td>100% digital</td>
-                            <td>Présentiel/Visio</td>
-                            <td class="optelys-col">Hybride flexible</td>
-                        </tr>
-                        <tr>
                             <td>IA intégrée</td>
                             <td>❌ Non</td>
                             <td>❌ Non</td>
                             <td class="highlight">✅ ELIO</td>
                         </tr>
                         <tr>
-                            <td>Gamification</td>
-                            <td>❌ Non</td>
-                            <td>❌ Non</td>
-                            <td class="highlight">✅ 25 modules</td>
+                            <td>Plans d'action</td>
+                            <td>❌ Limité</td>
+                            <td>❌ Manuel</td>
+                            <td class="highlight">✅ Automatisés</td>
                         </tr>
                         <tr>
-                            <td>API B2B</td>
+                            <td>Partenariats B2B</td>
                             <td>Limité</td>
                             <td>Non</td>
-                            <td class="highlight">✅ Complète</td>
-                        </tr>
-                        <tr>
-                            <td>Clients</td>
-                            <td>38 000</td>
-                            <td>Non communiqué</td>
-                            <td class="optelys-col">Phase pilote</td>
+                            <td class="highlight">✅ API complète</td>
                         </tr>
                     </tbody>
                 </table>
@@ -693,6 +955,10 @@
                     <div class="competitor-header">Chance</div>
                     <div class="competitor-data">
                         <div class="data-row">
+                            <div class="data-label">Approche</div>
+                            <div class="data-value">Bilan statique</div>
+                        </div>
+                        <div class="data-row">
                             <div class="data-label">Prix moyen</div>
                             <div class="data-value">1880€</div>
                         </div>
@@ -701,24 +967,16 @@
                             <div class="data-value">12 semaines</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">Format</div>
-                            <div class="data-value">100% digital</div>
-                        </div>
-                        <div class="data-row">
                             <div class="data-label">IA intégrée</div>
                             <div class="data-value">❌ Non</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">Gamification</div>
-                            <div class="data-value">❌ Non</div>
+                            <div class="data-label">Plans d'action</div>
+                            <div class="data-value">❌ Limité</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">API B2B</div>
+                            <div class="data-label">Partenariats B2B</div>
                             <div class="data-value">Limité</div>
-                        </div>
-                        <div class="data-row">
-                            <div class="data-label">Clients</div>
-                            <div class="data-value">38 000</div>
                         </div>
                     </div>
                 </div>
@@ -726,6 +984,10 @@
                 <div class="mobile-competitor">
                     <div class="competitor-header">ABACUS</div>
                     <div class="competitor-data">
+                        <div class="data-row">
+                            <div class="data-label">Approche</div>
+                            <div class="data-value">Bilan traditionnel</div>
+                        </div>
                         <div class="data-row">
                             <div class="data-label">Prix moyen</div>
                             <div class="data-value">2500€</div>
@@ -735,24 +997,16 @@
                             <div class="data-value">3-6 mois</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">Format</div>
-                            <div class="data-value">Présentiel/Visio</div>
-                        </div>
-                        <div class="data-row">
                             <div class="data-label">IA intégrée</div>
                             <div class="data-value">❌ Non</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">Gamification</div>
-                            <div class="data-value">❌ Non</div>
+                            <div class="data-label">Plans d'action</div>
+                            <div class="data-value">❌ Manuel</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">API B2B</div>
+                            <div class="data-label">Partenariats B2B</div>
                             <div class="data-value">Non</div>
-                        </div>
-                        <div class="data-row">
-                            <div class="data-label">Clients</div>
-                            <div class="data-value">Non communiqué</div>
                         </div>
                     </div>
                 </div>
@@ -760,6 +1014,10 @@
                 <div class="mobile-competitor" style="border: 2px solid var(--primary);">
                     <div class="competitor-header" style="background: rgba(6, 182, 212, 0.2); color: var(--primary);">Optelys</div>
                     <div class="competitor-data">
+                        <div class="data-row">
+                            <div class="data-label">Approche</div>
+                            <div class="data-value highlight">Développement dynamique</div>
+                        </div>
                         <div class="data-row">
                             <div class="data-label">Prix moyen</div>
                             <div class="data-value highlight">1090€</div>
@@ -769,24 +1027,16 @@
                             <div class="data-value highlight">8 semaines</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">Format</div>
-                            <div class="data-value primary">Hybride flexible</div>
-                        </div>
-                        <div class="data-row">
                             <div class="data-label">IA intégrée</div>
                             <div class="data-value highlight">✅ ELIO</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">Gamification</div>
-                            <div class="data-value highlight">✅ 25 modules</div>
+                            <div class="data-label">Plans d'action</div>
+                            <div class="data-value highlight">✅ Automatisés</div>
                         </div>
                         <div class="data-row">
-                            <div class="data-label">API B2B</div>
-                            <div class="data-value highlight">✅ Complète</div>
-                        </div>
-                        <div class="data-row">
-                            <div class="data-label">Clients</div>
-                            <div class="data-value primary">Phase pilote</div>
+                            <div class="data-label">Partenariats B2B</div>
+                            <div class="data-value highlight">✅ API complète</div>
                         </div>
                     </div>
                 </div>
@@ -795,28 +1045,28 @@
             <div class="grid-3" style="margin-top: 3rem;">
                 <div class="card">
                     <h3 style="color: var(--primary);">Notre différenciation</h3>
-                    <p>"Haute couture" du bilan accessible</p>
-                    <p style="font-size: 0.9rem;">Excellence technique et accompagnement personnalisé à prix disruptif.</p>
+                    <p>Mouvement vs État des lieux</p>
+                    <p style="font-size: 0.9rem;">Nous ne faisons pas que diagnostiquer, nous mettons en action.</p>
                 </div>
                 <div class="card">
                     <h3 style="color: var(--secondary);">Notre stratégie</h3>
-                    <p>B2B2C et expansion internationale</p>
-                    <p style="font-size: 0.9rem;">Devenir le moteur technologique des professionnels RH en Europe et Afrique.</p>
+                    <p>Équiper plutôt que concurrencer</p>
+                    <p style="font-size: 0.9rem;">Nous devenons la technologie des professionnels RH et coaches.</p>
                 </div>
                 <div class="card">
                     <h3 style="color: var(--accent);">Notre vision</h3>
-                    <p>Écosystème, pas concurrent</p>
-                    <p style="font-size: 0.9rem;">Nous équipons les institutions plutôt que de les concurrencer.</p>
+                    <p>Écosystème de développement</p>
+                    <p style="font-size: 0.9rem;">Plateforme centrale pour tous les acteurs du développement professionnel.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Slide 6: ELIO -->
+    <!-- Slide 7: ELIO -->
     <section class="slide" id="elio">
         <div class="slide-content">
-            <h2>ELIO : Notre avantage technologique</h2>
-            <p style="text-align: center;">L'intelligence artificielle au service de votre développement professionnel</p>
+            <h2>ELIO : L'IA qui transforme l'intention en action</h2>
+            <p style="text-align: center;">Notre avantage technologique au service du mouvement professionnel</p>
             
             <div class="grid-2" style="margin-top: 3rem;">
                 <div>
@@ -829,17 +1079,23 @@
                             </li>
                             <li style="margin-bottom: 1rem;">
                                 <strong style="color: var(--secondary);">Mémoire contextuelle</strong><br/>
-                                Personnalisation basée sur votre parcours
+                                Personnalisation basée sur votre parcours évolutif
                             </li>
                             <li style="margin-bottom: 1rem;">
-                                <strong style="color: var(--secondary);">Recherche adaptative</strong><br/>
-                                Réponses contextualisées et précises
+                                <strong style="color: var(--secondary);">Générateur de plans d'action</strong><br/>
+                                Stratégies concrètes et mesurables
                             </li>
                             <li>
-                                <strong style="color: var(--secondary);">Fallback intelligent</strong><br/>
-                                Aucune question ne reste sans réponse
+                                <strong style="color: var(--secondary);">Suivi intelligent</strong><br/>
+                                Ajustement continu selon vos progrès
                             </li>
                         </ul>
+                    </div>
+                    
+                    <div style="background: rgba(6, 182, 212, 0.1); padding: 1.5rem; border-radius: 1rem; margin-top: 1rem;">
+                        <p style="color: var(--primary); font-weight: 600; margin: 0; text-align: center;">
+                            "Notre objectif : transformer l'état des lieux en plan d'action immédiat"
+                        </p>
                     </div>
                 </div>
                 
@@ -864,29 +1120,32 @@
                         </div>
                     </div>
                     
-                    <div class="card" style="margin-top: 2rem; text-align: center;">
-                        <p style="margin: 0;">
-                            <strong style="color: var(--primary); font-size: 1.5rem;">15-25s</strong><br/>
-                            Temps de réponse moyen
-                        </p>
+                    <div class="card" style="margin-top: 2rem;">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem;">Impact mesuré</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+                            <li style="margin-bottom: 0.5rem;">⚡ Plans d'action en 15-25 secondes</li>
+                            <li style="margin-bottom: 0.5rem;">🎯 92% de mise en œuvre effective</li>
+                            <li style="margin-bottom: 0.5rem;">📈 78% d'évolution mesurable à 3 mois</li>
+                            <li>🔄 Ajustements en temps réel selon progression</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Slide 7: Business Model -->
+    <!-- Slide 8: Business Model -->
     <section class="slide" id="business">
         <div class="slide-content">
             <h2>Modèle économique et vision d'expansion</h2>
-            <p style="text-align: center;">De la validation française à l'écosystème international</p>
+            <p style="text-align: center;">De la validation française à l'écosystème international de développement professionnel</p>
             
             <div class="grid-2" style="margin-top: 3rem;">
                 <div>
                     <h3>Phase 1 : Validation France (2026-2027)</h3>
                     <div class="card">
                         <h4 style="color: var(--primary);">B2C - Laboratoire d'innovation</h4>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Rodage de la plateforme avec les particuliers pour perfectionner l'expérience utilisateur</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Rodage de la plateforme avec les particuliers pour perfectionner l'expérience de mise en mouvement</p>
                         
                         <h4 style="color: var(--secondary);">Projections financières</h4>
                         <div style="margin-bottom: 1rem;">
@@ -905,8 +1164,8 @@
                 <div>
                     <h3>Phase 2 : Expansion B2B & Internationale</h3>
                     <div class="card">
-                        <h4 style="color: var(--accent);">Objectif ultime : Fournisseur institutionnel</h4>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Devenir la technologie de référence pour entreprises, institutions et organismes de formation</p>
+                        <h4 style="color: var(--accent);">Objectif ultime : Équipeur institutionnel</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Devenir la technologie de référence pour entreprises, institutions et organismes de développement professionnel</p>
                         
                         <h4 style="color: var(--warning);">Marchés cibles d'expansion</h4>
                         <div class="grid-2" style="gap: 1rem; margin: 1rem 0;">
@@ -930,7 +1189,7 @@
                         </div>
                         
                         <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <strong>Avantage concurrentiel :</strong> API complète, certifications locales, partenariats stratégiques
+                            <strong>Stratégie :</strong> API complète, certifications locales, partenariats avec écosystèmes RH existants
                         </div>
                     </div>
                 </div>
@@ -938,13 +1197,13 @@
             
             <div style="text-align: center; margin-top: 2rem;">
                 <div class="badge badge-warning" style="font-size: 1.1rem; padding: 0.75rem 2rem;">
-                    🎯 Vision 2030 : Leader technologique européen du bilan de compétences
+                    🎯 Vision 2030 : Leader technologique européen du développement de carrière
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Slide 8: Équipe -->
+    <!-- Slide 9: Équipe -->
     <section class="slide" id="team">
         <div class="slide-content">
             <h2>L'Histoire du Fondateur</h2>
@@ -973,14 +1232,14 @@
                             <p style="margin: 0;"><span style="color: var(--warning);">✓</span> L'importance de l'alignement entre personnalité et projet professionnel</p>
                         </div>
                         <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <p style="margin: 0;"><span style="color: var(--warning);">✓</span> Le besoin d'outils structurants pour prendre de la hauteur</p>
+                            <p style="margin: 0;"><span style="color: var(--warning);">✓</span> Le besoin d'outils structurants pour passer à l'action</p>
                         </div>
                         <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 0.5rem;">
-                            <p style="margin: 0;"><span style="color: var(--warning);">✓</span> La valeur de l'accompagnement humain dans les transitions</p>
+                            <p style="margin: 0;"><span style="color: var(--warning);">✓</span> La valeur de l'accompagnement dans la mise en mouvement</p>
                         </div>
                     </div>
                     
-                    <h4 style="color: var(--accent); margin: 2rem 0 1rem;">Une expertise certifiée au service de tous</h4>
+                    <h4 style="color: var(--accent); margin: 2rem 0 1rem;">Une expertise certifiée au service de la transformation</h4>
                     
                     <div style="background: rgba(16, 185, 129, 0.1); padding: 2rem; border-radius: 1rem; text-align: left;">
                         <p style="margin-bottom: 1rem;">C'est cette expérience concrète qui m'a poussé à acquérir les certifications nécessaires :</p>
@@ -999,7 +1258,7 @@
                     
                     <div style="background: rgba(6, 182, 212, 0.1); padding: 1.5rem; border-radius: 1rem; margin: 2rem 0;">
                         <p style="color: var(--primary); font-weight: 600; margin: 0;">
-                            Mon crédo : Allier l'expertise du terrain à la rigueur académique pour créer des solutions qui fonctionnent dans le monde réel.
+                            Mon crédo : Allier l'expertise du terrain à la rigueur académique pour créer des solutions qui transforment les intentions en trajectoires réelles.
                         </p>
                     </div>
                 </div>
@@ -1007,12 +1266,12 @@
         </div>
     </section>
 
-    <!-- Slide 9: Contact -->
+    <!-- Slide 10: Contact -->
     <section class="slide" id="contact">
         <div class="slide-content">
             <h2>Rejoignez l'aventure Optelys</h2>
             <p style="text-align: center; font-size: 1.25rem; margin-bottom: 3rem;">
-                Choisissez votre profil et découvrez comment Optelys peut vous accompagner
+                Choisissez votre profil et découvrez comment Optelys peut transformer votre développement professionnel
             </p>
             
             <div class="grid-3">
@@ -1110,24 +1369,24 @@
         </div>
     </section>
 
-    <!-- Slide 10: Conclusion -->
+    <!-- Slide 11: Conclusion -->
     <section class="slide" id="conclusion">
         <div class="slide-content">
             <div style="text-align: center;">
-                <h1>Le futur du bilan de compétences<br/>commence <span style="color: var(--primary);">maintenant</span></h1>
+                <h1>Le futur du développement professionnel<br/>commence <span style="color: var(--primary);">maintenant</span></h1>
                 
                 <div style="max-width: 800px; margin: 3rem auto;">
                     <p style="font-size: 1.25rem; line-height: 1.8;">
                         Optelys n'est pas qu'une plateforme de plus.<br/>
-                        C'est une <strong style="color: var(--primary);">vision</strong> : celle d'un monde où chaque professionnel 
-                        peut accéder à un accompagnement de qualité pour révéler son potentiel.
+                        C'est une <strong style="color: var(--primary);">révolution</strong> : celle qui transforme 
+                        l'introspection en action, l'intention en trajectoire mesurable.
                     </p>
                     
                     <p style="font-size: 1.25rem; line-height: 1.8; margin-top: 2rem;">
                         Avec <strong style="color: var(--secondary);">30 ans d'expertise</strong>, 
-                        une <strong style="color: var(--accent);">technologie de pointe</strong>, 
-                        et une <strong style="color: var(--warning);">approche disruptive</strong>,
-                        nous sommes prêts à transformer ce marché.
+                        une <strong style="color: var(--accent);">IA de mise en mouvement</strong>, 
+                        et une <strong style="color: var(--warning);">approche écosystémique</strong>,
+                        nous redéfinissons le développement de carrière.
                     </p>
                 </div>
                 
@@ -1145,22 +1404,22 @@
                         <div class="metric-label">satisfaction</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">24/7</div>
-                        <div class="metric-label">disponible</div>
+                        <div class="metric-value">92%</div>
+                        <div class="metric-label">mise en action</div>
                     </div>
                 </div>
                 
                 <div style="margin-top: 3rem;">
-                    <h3 style="margin-bottom: 2rem;">Rejoignez l'aventure</h3>
+                    <h3 style="margin-bottom: 2rem;">Rejoignez la révolution</h3>
                     <a href="https://beta.optelys.fr" class="btn btn-primary pulse" style="font-size: 1.25rem; padding: 1.25rem 3rem; text-decoration: none;">
-                        Découvrir la plateforme →
+                        Transformer vos intentions →
                     </a>
                 </div>
                 
                 <div style="margin-top: 3rem;">
                     <p style="color: var(--gray);">
                         © 2025 Optelys - Tous droits réservés<br/>
-                        <small>La haute couture du bilan de compétences</small>
+                        <small>L'IA qui transforme les intentions en trajectoires de carrière</small>
                     </p>
                 </div>
             </div>
@@ -1232,35 +1491,38 @@
         dots[0].classList.add('active');
         
         // Form handling
-        document.querySelectorAll('.contact-form button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const form = e.target.closest('.contact-form');
-                const inputs = form.querySelectorAll('input, select');
-                
-                // Simple validation
-                let isValid = true;
-                inputs.forEach(input => {
-                    if (!input.value) {
-                        input.style.borderColor = 'var(--danger)';
-                        isValid = false;
+        document.querySelectorAll('.btn').forEach(button => {
+            if (button.closest('.card')) {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const form = e.target.closest('.card');
+                    const inputs = form.querySelectorAll('input, select');
+                    
+                    // Simple validation
+                    let isValid = true;
+                    inputs.forEach(input => {
+                        if (!input.value) {
+                            input.style.borderColor = 'var(--danger)';
+                            isValid = false;
+                        } else {
+                            input.style.borderColor = 'rgba(148, 163, 184, 0.3)';
+                        }
+                    });
+                    
+                    if (isValid) {
+                        // Simulate form submission
+                        const originalText = button.textContent;
+                        button.textContent = 'Envoyé !';
+                        button.style.background = 'var(--accent)';
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                            button.style.background = '';
+                        }, 2000);
                     } else {
-                        input.style.borderColor = 'rgba(148, 163, 184, 0.3)';
+                        alert('Veuillez remplir tous les champs');
                     }
                 });
-                
-                if (isValid) {
-                    // Simulate form submission
-                    button.textContent = 'Envoyé !';
-                    button.style.background = 'var(--accent)';
-                    setTimeout(() => {
-                        button.textContent = button.textContent.replace('Envoyé !', button.textContent);
-                        button.style.background = '';
-                    }, 2000);
-                } else {
-                    alert('Veuillez remplir tous les champs');
-                }
-            });
+            }
         });
         
         // Analytics placeholder
